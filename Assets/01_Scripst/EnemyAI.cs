@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
