@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Obtenemos el Rigidbody2D de la bala
 
-        // Hacer que la bala se mueva en la dirección en la que está apuntando
+        // La bala se moverá en la dirección en que se apuntó el arma
         rb.velocity = transform.up * speed;
 
         // Destruir la bala después de un tiempo
@@ -30,6 +30,4 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);            // Destruye la bala
         }
     }
-
-
 }

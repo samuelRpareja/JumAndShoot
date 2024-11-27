@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -90,8 +89,14 @@ public class Player : MonoBehaviour
 
     void ShootBullet()
     {
+        // Obtener la dirección desde el FirePoint
+        Vector2 shootDirection = firePoint.up; // Usamos "up" para la dirección de la rotación del firePoint
         Bullet bullet = Instantiate(bulletPrefap, firePoint.position, firePoint.rotation);
+
+        // Establecemos la dirección de la bala para que siga la rotación del firePoint
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.speed;
     }
+
 
     void Jump()
     {

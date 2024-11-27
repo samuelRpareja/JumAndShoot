@@ -24,13 +24,28 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
+        if (seeker == null || rb == null)
+        {
+            Debug.LogError("Seeker o Rigidbody2D no están configurados en el objeto.");
+            enabled = false;
+            return;
+        }
+
+        if (target == null)
+        {
+            Debug.LogError("Target no asignado en el script EnemyAI.");
+            return;
+        }
+
         InvokeRepeating("UpdatePath", 0f, .5f);
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
     void UpdatePath()
     {
-        if(seeker.IsDone())
+        if (target == null) return;
+
+        if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -43,23 +58,21 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
-
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (path == null) 
+        if (path == null || path.vectorPath == null || path.vectorPath.Count == 0)
             return;
 
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
         }
         else
         {
-            reachedEndOfPath = true;
+            reachedEndOfPath = false;
         }
 
         Vector2 dirrection = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
