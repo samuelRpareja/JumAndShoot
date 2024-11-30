@@ -5,10 +5,17 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 
 {
+    public int maxHealth = 100; // Vida máxima del jugador
+    public int currentHealth;  // Vida actual
+    public int score = 0;      // Puntaje actual
+
+    public Text healthText;    // Referencia al texto de vida en el Canvas
+    public Text scoreText;
 
     public Rigidbody2D rb;
 
@@ -43,13 +50,59 @@ public class Player : MonoBehaviour
     private const int maxJumps = 2;
 
     void Start()
-
     {
-
-        // Asegura que el jugador inicie con una rotación neutral
 
         transform.rotation = Quaternion.identity;
 
+
+        currentHealth = maxHealth; // Inicia con vida máxima
+        UpdateUI();
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0); // Evita que la vida sea negativa
+        UpdateUI();
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // Evita superar la vida máxima
+        UpdateUI();
+    }
+
+    public void AddScore(int points)
+    {
+        score += points;
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        healthText.text = "Vida: " + currentHealth;
+        scoreText.text = "Score: " + score;
+    }
+
+    void Die()
+    {
+        Debug.Log("El jugador ha muerto.");
+        // Lógica para reiniciar o terminar el juego
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+    {
+            TakeDamage(10); // Recibir daño al chocar con un enemigo
+        }
     }
 
     void Update()

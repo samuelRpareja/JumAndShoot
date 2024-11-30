@@ -97,4 +97,12 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("bala"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

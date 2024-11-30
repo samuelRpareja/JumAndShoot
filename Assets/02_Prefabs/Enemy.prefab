@@ -31,7 +31,7 @@ Transform:
   m_LocalPosition: {x: 9.25, y: 0.41, z: -2.5503302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5620325334132234994}
+  - {fileID: 7901453325582309992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.91
+  m_Radius: 0.77
 --- !u!114 &6691086907418950867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
-  enemyGFX: {fileID: 5620325334132234994}
+  enemyGFX: {fileID: 0}
 --- !u!50 &6691086907418950864
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1001 &6691086906347595161
+--- !u!1001 &8972144511905998083
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -129,15 +129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1235371726322876267, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09000015
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 1235371726322876267, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.085773855
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 1235371726322876267, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.625736
+      value: 6.5027027
       objectReference: {fileID: 0}
     - target: {fileID: 1235371726322876267, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
       propertyPath: m_LocalRotation.w
@@ -169,15 +169,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8838399075005349661, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
       propertyPath: m_Name
-      value: MachineGFX (1)
+      value: MachineGFX
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8220199839004795611, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
-    - {fileID: 7840132535925852618, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
-    - {fileID: 3818394772361443590, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
---- !u!4 &5620325334132234994 stripped
+--- !u!4 &7901453325582309992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1235371726322876267, guid: dca6d865903cc8d4b8cd693ac18d1302, type: 3}
-  m_PrefabInstance: {fileID: 6691086906347595161}
+  m_PrefabInstance: {fileID: 8972144511905998083}
   m_PrefabAsset: {fileID: 0}

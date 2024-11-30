@@ -8,18 +8,13 @@ public class Enemy : MonoBehaviour
     private float life = 3;
 
     public float speed = 1f; // Velocidad reducida a la mitad
+
     private Transform target;
 
     void Start()
     {
         life = maxLife;
 
-        // Buscar al jugador como objetivo
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            target = player.transform;
-        }
     }
 
     void Update()
